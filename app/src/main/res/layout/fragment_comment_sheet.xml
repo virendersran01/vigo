@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.retrytech.vilo.utils.Global" />
+
+        <variable
+            name="viewmodel"
+            type="com.retrytech.vilo.viewmodel.CommentSheetViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/bg_bottom_sheet"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/lout_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text='@{Global.prettyCount(viewmodel.commentCount) + " Comments"}'
+                android:textColor="@color/light_white"
+                android:textSize="13dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/img_close"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_close"
+                android:tint="@color/light_white" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/lout_comment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/lout_count"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:id="@+id/lout_noComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginVertical="60dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="@{viewmodel.isEmpty ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/bubble_single" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Be the first to comment\nand known by the creator"
+                    android:textColor="@color/light_white" />
+
+
+            </LinearLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:visibility="@{viewmodel.isEmpty ? View.GONE : View.VISIBLE}"
+
+                >
+
+                <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    android:id="@+id/refreshlout"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="10dp"
+                        android:visibility="visible"
+                        app:adapter="@{viewmodel.adapter}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:spanCount="2"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/item_comment_list" />
+
+                    <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp" />
+
+                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/lout_addComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/et_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="8dp"
+                android:afterTextChanged="@{(editable)->viewmodel.afterCommentTextChanged(editable)}"
+                android:background="@null"
+                android:backgroundTint="@color/colorPrimary"
+                android:hint="Type your comment here.."
+                android:paddingVertical="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="60dp"
+                android:textColor="@color/color_text_light"
+                android:textColorHint="@color/color_text_light"
+                android:textCursorDrawable="@xml/cursor"
+                android:textSize="15dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/img_send"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_gradient_round"
+                android:padding="11dp"
+                android:src="@drawable/ic_send"
+                android:tint="@color/white" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

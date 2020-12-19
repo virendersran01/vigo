@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="notification"
+            type="com.retrytech.vilo.model.notification.Notification.Data" />
+    </data>
+
+
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:orientation="horizontal"
+            android:paddingVertical="2dp">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/ic_searchuser_dp_bg"
+                app:profile_url="@{notification.userProfile}" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/popins_medium"
+                    android:text="@{notification.fullName}"
+                    android:textColor="@color/light_white"
+                    android:textSize="15dp"
+                    tools:text="Samantha Smith" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/popins_reguler"
+                    android:maxLines="2"
+                    android:text="@{notification.message}"
+                    android:textColor="@color/color_text_light"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:padding="4dp"
+                app:notification_type="@{notification.notificationType}"
+                tools:src="@drawable/bubbles" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="4dp"
+            android:background="@color/colorPrimary" />
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.retrytech.vilo.model.music.Musics.SoundList" />
+
+        <variable
+            name="isFav"
+            type="Boolean" />
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:layout_width="75dp"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/ic_cd"
+                    android:backgroundTint="@color/color_text_light"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dummy_sound"
+                    app:image_url="@{model.soundImage}" />
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit"
+                    style="@style/SpinKitView.Large.DoubleBounce"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:SpinKit_Color="@color/white" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/popins_medium"
+                    android:singleLine="true"
+                    android:text="@{model.soundTitle}"
+                    android:textColor="@color/light_white"
+                    tools:text="@tools:sample/full_names" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/popins_medium"
+                    android:singleLine="true"
+                    android:text="@{model.singer}"
+                    android:textColor="@color/color_text_light"
+                    android:textSize="12sp"
+                    tools:text="@tools:sample/first_names" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/popins_medium"
+                    android:singleLine="true"
+                    android:text="@{model.duration}"
+                    android:textColor="@color/color_text_light"
+                    android:textSize="12sp"
+                    tools:text="@tools:sample/date/hhmm" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ic_favourite"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:paddingStart="1dp"
+                android:paddingEnd="10dp"
+                android:src="@drawable/ic_favourite"
+                android:tint="@{isFav ? @color/colorTheme:@color/color_text_light}" />
+
+            <ImageView
+                android:id="@+id/btn_select"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_white_corner_5"
+                android:backgroundTint="@color/colorTheme"
+                android:padding="3dp"
+                android:src="@drawable/ic_round_check_24"
+                android:tint="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

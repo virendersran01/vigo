@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.retrytech.vilo.model.videos.Video.Data" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="325dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:blur_image="@{model.postImage}" />
+
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    app:controller_layout_id="@layout/item_player_controler"
+                    app:show_timeout="1000"
+                    app:shutter_background_color="@color/transparent"
+                    app:surface_type="texture_view" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent_black_60" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/bg_gradient_round"
+                                android:padding="2dp"
+                                android:src="@drawable/dummy_user"
+                                app:profile_url="@{model.userProfile}"
+
+                                />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="-5dp"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:maxLines="1"
+                                    android:text="@{model.fullName}"
+                                    android:textColor="@color/light_white"
+                                    android:textSize="15dp"
+                                    tools:text="Samantha Smith"
+
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/userName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/popins_light"
+                                        android:text='@{"@"+model.userName}'
+                                        android:textColor="@color/light_white"
+                                        android:textSize="12dp"
+
+                                        />
+
+                                    <ImageView
+                                        android:layout_width="14dp"
+                                        android:layout_height="14dp"
+                                        android:layout_marginStart="5dp"
+                                        android:src="@drawable/ic_user_verified"
+                                        android:visibility="@{model.isVerified ? View.VISIBLE : View.GONE}" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/popins_reguler"
+                            android:maxLines="1"
+                            android:text="5.0m Fans"
+                            android:textColor="@color/light_white"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/btn_follow"
+                            android:layout_width="180dp"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_gradient"
+                            android:fontFamily="@font/popins_light"
+                            android:letterSpacing=".05"
+                            android:text="Follow"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

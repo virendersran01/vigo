@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="success"
+            type="Boolean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_corner_15"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:gravity="center_horizontal"
+        android:minWidth="270dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_send_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text='@{success ? "Sent Successfully.." : "Insufficient Balance !"}'
+            android:textColor="@color/light_white"
+            android:textSize="18dp"
+            tools:text="Send Successfully !" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:src="@{success ? @drawable/send_success : @drawable/send_fail}" />
+
+        <TextView
+            android:id="@+id/tv_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text='@{success ? "Bubbles sent to the creator\nsuccessfully.." : "Add some bubbles to\nyour wallet !!"}'
+            android:textColor="@color/color_text_light"
+            tools:text="Coins sent to the creator\nsuccessfully !" />
+
+
+        <RelativeLayout
+            android:id="@+id/lout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:weightSum="2"
+
+            >
+
+            <LinearLayout
+                android:id="@+id/lout_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_gradient_round"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingEnd="20dp"
+                android:visibility="@{success ? View.VISIBLE : View.INVISIBLE}"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_round_check" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/popins_medium"
+                    android:text="OK"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lout_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_gradient_round"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="15dp"
+                android:paddingEnd="20dp"
+                android:visibility="@{success ? View.INVISIBLE : View.VISIBLE}"
+                tools:visibility="visible"
+
+                >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_dollar_round"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/popins_medium"
+                    android:text="ADD NOW"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</layout>

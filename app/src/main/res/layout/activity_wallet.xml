@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <variable
+            name="OnMoreClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="OnRedeemClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="rewardingActions"
+            type="com.retrytech.vilo.model.wallet.RewardingActions.Data" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".view.wallet.WalletActivity">
+
+        <RelativeLayout
+            android:id="@+id/lout_header"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/popins_medium"
+                android:text="Wallet"
+                android:textColor="@color/light_white"
+                android:textSize="16dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/light_white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/lout_header"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="@drawable/dp_bg">
+
+                        <TextView
+                            android:id="@+id/tv_count"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:fontFamily="@font/gilroy_medium"
+                            android:gravity="center"
+                            android:paddingBottom="8dp"
+                            android:text="00"
+                            android:textColor="@color/light_white"
+                            android:textSize="30dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="130dp"
+                            android:background="@drawable/bg_gradient_round"
+                            android:fontFamily="@font/popins_medium"
+                            android:paddingHorizontal="15dp"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="5dp"
+                            android:text="Bubbles You Have"
+                            android:textColor="@color/light_white"
+                            android:textSize="15dp" />
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_coin_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_text_light"
+                    tools:text="1000 Bubbles = 1.00 USD"
+
+                    />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/btn_bg"
+                    android:fontFamily="@font/popins_bold"
+                    android:onClick="@{OnMoreClick}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/popins_medium"
+                        android:letterSpacing=".05"
+                        android:paddingTop="3dp"
+                        android:text="ADD COINS"
+                        android:textColor="@color/black"
+
+                        />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white_corner_15"
+                            android:backgroundTint="@color/square_green"
+                            android:elevation="4dp"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/popins_medium"
+                                android:text="Total Earning"
+                                android:textColor="@color/color_text_light"
+                                android:textSize="15dp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_total_earning"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/popins_medium"
+                                android:text="00"
+                                android:textColor="@color/colorTheme"
+                                android:textSize="19dp"
+
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white_corner_15"
+                            android:backgroundTint="@color/square_green"
+                            android:elevation="4dp"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/popins_medium"
+                                android:text="Total Spending"
+                                android:textColor="@color/color_text_light"
+                                android:textSize="15dp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_total_spending"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/popins_medium"
+                                android:text="00"
+                                android:textColor="@color/colorTheme"
+                                android:textSize="19dp"
+
+                                />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Passbook"
+                        android:textColor="@color/light_white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_gradient_corner_25"
+                                android:backgroundTint="@color/square_green"
+                                android:elevation="4dp"
+                                android:paddingHorizontal="15dp"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="Bubbles"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="19dp"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_time_spent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="00"
+                                    android:textColor="@color/colorTheme"
+                                    android:textSize="40dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/popins_reguler"
+                                    android:text="Time spent in app"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="13dp"
+
+                                    />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_gradient_corner_25"
+                                android:backgroundTint="@color/square_green"
+                                android:elevation="4dp"
+                                android:paddingHorizontal="15dp"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="Bubbles"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="19dp"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_daily_checkin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="00"
+                                    android:textColor="@color/colorTheme"
+                                    android:textSize="40dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/popins_reguler"
+                                    android:text="Daily Check-in"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="13dp"
+
+                                    />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_gradient_corner_25"
+                                android:backgroundTint="@color/square_green"
+                                android:elevation="4dp"
+                                android:paddingHorizontal="15dp"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="Bubbles"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="19dp"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_video_upload"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="00"
+                                    android:textColor="@color/colorTheme"
+                                    android:textSize="40dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/popins_reguler"
+                                    android:text="Video Upload"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="13dp"
+
+                                    />
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_gradient_corner_25"
+                                android:backgroundTint="@color/square_green"
+                                android:elevation="4dp"
+                                android:paddingHorizontal="15dp"
+                                android:paddingVertical="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="Bubbles"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="19dp"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_from_your_fans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:fontFamily="@font/popins_medium"
+                                    android:text="00"
+                                    android:textColor="@color/colorTheme"
+                                    android:textSize="40dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentBottom="true"
+                                    android:fontFamily="@font/popins_reguler"
+                                    android:text="From your fans"
+                                    android:textColor="@color/color_text_light"
+                                    android:textSize="13dp"
+
+                                    />
+
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/bg_gradient_corner_15"
+                        android:paddingHorizontal="15dp">
+
+                        <TextView
+                            android:id="@+id/tv_purchased"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/popins_medium"
+                            android:paddingTop="7dp"
+                            android:text="00"
+                            android:textColor="@color/white"
+                            android:textSize="33dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/popins_reguler"
+                            android:text="Purchased"
+                            android:textColor="@color/white"
+                            android:textSize="13dp"
+
+                            />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rewarding Actions"
+                        android:textColor="@color/light_white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="15dp">
+
+                            <TextView
+                                android:id="@+id/tv_every10_reward"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_white_round"
+                                android:backgroundTint="@color/colorTheme"
+                                android:gravity="center"
+                                android:paddingTop="3dp"
+                                android:text="00"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:gravity="center"
+                                android:text="Every 10 minutes spend in app"
+                                android:textColor="@color/color_text_light"
+                                android:textSize="13dp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="15dp">
+
+                            <TextView
+                                android:id="@+id/tv_daily_reward"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_white_round"
+                                android:backgroundTint="@color/colorTheme"
+                                android:gravity="center"
+                                android:paddingTop="3dp"
+                                android:text="00"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:gravity="center"
+                                android:text="Daily check-in"
+                                android:textColor="@color/color_text_light"
+                                android:textSize="13dp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/colorPrimary"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="15dp">
+
+                            <TextView
+                                android:id="@+id/tv_upload_reward"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@drawable/bg_white_round"
+                                android:backgroundTint="@color/colorTheme"
+                                android:gravity="center"
+                                android:paddingTop="3dp"
+                                android:text="00"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:gravity="center"
+                                android:text="Whenever you upload video"
+                                android:textColor="@color/color_text_light"
+                                android:textSize="13dp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/popins_reguler"
+                    android:onClick="@{OnRedeemClick}"
+                    android:text="Request Redeem"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorTheme"
+                    android:textSize="13dp"
+
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

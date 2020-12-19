@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.retrytech.vilo.viewmodel.VerificationViewModel" />
+
+        <variable
+            name="OnCaptureClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="OnAttachClick"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".view.profile.VerificationActivity">
+
+        <RelativeLayout
+            android:id="@+id/lout_header"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/popins_medium"
+                android:text="@string/request_verification"
+                android:textColor="@color/light_white"
+                android:textSize="16sp"
+
+                />
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/back_online"
+                android:padding="3dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/light_white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/lout_header"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="50dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/your_photo_holding_your_id_card"
+                    android:textColor="@color/light_white" />
+
+                <ImageView
+                    android:id="@+id/round_img"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/img_holding_id"
+                    android:contentDescription="@string/image" />
+
+
+                <Button
+                    android:id="@+id/tv_add_image"
+                    android:layout_width="200dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/popins_reguler"
+                    android:onClick="@{OnCaptureClick}"
+                    android:text="@string/capture"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorTheme"
+                    android:textSize="13sp"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/photo_of_id_clear_photo"
+                    android:textColor="@color/light_white" />
+
+                <ImageView
+                    android:id="@+id/iv_proof"
+                    android:layout_width="170dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_id"
+                    android:contentDescription="@string/imagePickerEmpty"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:fontFamily="@font/popins_reguler"
+                    android:onClick="@{OnAttachClick}"
+                    android:text="@string/attach"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorTheme"
+                    android:textSize="13sp"
+
+                    />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/id_number"
+                    android:textColor="@color/light_white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:afterTextChanged="@{(editable)->viewModel.afterTextChanged(editable,0)}"
+                    android:background="@drawable/bg_white_corner_15"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="@string/xxx_xx_xxxxxx_xx"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    android:textColor="@color/color_text_light"
+                    android:textColorHint="@color/color_text_light"
+                    android:textCursorDrawable="@xml/cursor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/name_on_id"
+                    android:textColor="@color/light_white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:afterTextChanged="@{(editable)->viewModel.afterTextChanged(editable,1)}"
+                    android:background="@drawable/bg_white_corner_15"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:hint="@string/same_as_id"
+                    android:inputType="text"
+                    android:paddingHorizontal="15dp"
+                    android:textColor="@color/color_text_light"
+                    android:textColorHint="@color/color_text_light"
+                    android:textCursorDrawable="@xml/cursor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/full_address"
+                    android:textColor="@color/light_white" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="5dp"
+                    android:afterTextChanged="@{(editable)->viewModel.afterTextChanged(editable,2)}"
+                    android:background="@drawable/bg_white_corner_15"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="top"
+                    android:hint="@string/same_as_id"
+                    android:inputType="text"
+                    android:nestedScrollingEnabled="true"
+                    android:paddingHorizontal="15dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/color_text_light"
+                    android:textColorHint="@color/color_text_light"
+                    android:textCursorDrawable="@xml/cursor"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@{viewModel.isEnabled ? @drawable/bg_gradient : @drawable/bg_grey_corner_5}"
+                    android:enabled="@{viewModel.isEnabled}"
+                    android:fontFamily="@font/popins_medium"
+                    android:onClick="@{()->viewModel.requestVerify()}"
+                    android:text="@string/submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,97 @@
+<resources>
+
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+
+    <string name="app_name">BubbleTok</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="following">Following</string>
+    <string name="for_you">For You</string>
+    <string name="skip_ads">Skip Ads</string>
+    <string name="share">Share</string>
+    <string name="download">Download</string>
+    <string name="more">More</string>
+    <string name="less">less</string>
+    <string name="ads">Ads</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="back_online">Back Online</string>
+    <string name="facebook">Facebook</string>
+    <string name="or">Or</string>
+    <string name="google">Google</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="facebook_app_id">1104643359931911</string>
+    <string name="fb_login_protocol_scheme">fb1104643359931911</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="send_otp">Send Otp</string>
+    <string name="record">record</string>
+    <string name="dummy_bio">Content creator and 🍕 food lover.\nLove to make cooking videos and share❤</string>
+    <string name="discover">Discover</string>
+    <string name="favourite">Favourite</string>
+    <string name="search_music">Search Music</string>
+    <string name="banner">banner</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="abcd">qwertyuiopasdfghjklzxcvbnm 1234567890 QWERTYUIOPASDFGHJKLZXCVBNM _</string>
+
+    <string name="dummy_ad_text">Hey there this product is amazing\nget 30% Off on all the products and win\nthe chance to meet priyanka Chopara</string>
+    <string name="imagePickerEmpty">No images found</string>
+    <string name="imagePickerLoading">Loading…</string>
+    <string name="toastImagePickerNoWritePermission">Write storage permission not granted :(</string>
+
+    <string name="imagePickerSingle">Please select an image</string>
+
+    <plurals name="imagePickerMulti">
+        <item quantity="one">You have selected one image</item>
+        <item quantity="other">You have selected %1$d images</item>
+    </plurals>
+    <plurals name="imagePickerMultiMore">
+        <item quantity="one">You have to select one more image</item>
+        <item quantity="other">You have to select %1$d more images</item>
+    </plurals>
+    <string name="imagePickerMultiLimit">You cannot select more than %1$d images</string>
+    <declare-styleable name="ExpandableTextView">
+        <attr name="animation_duration" format="integer" />
+    </declare-styleable>
+
+    <string-array name="payment">
+        <item>PayPal</item>
+        <item>Paytm</item>
+    </string-array>
+
+    <string-array name="report_reasons">
+        <item>Violence</item>
+        <item>Nudity</item>
+        <item>Harassment</item>
+        <item>Terrorism</item>
+        <item>Copyright Infringement</item>
+        <item>False News</item>
+    </string-array>
+
+    <string name="file_provider" translatable="false">com.retrytech.vilo.fileprovider</string>
+    <string name="close">close</string>
+    <string name="flash">flash</string>
+    <string name="flip">flip</string>
+    <string name="music">music</string>
+    <string name="capture">Capture</string>
+    <string name="photo_of_id_clear_photo">Photo of ID (Clear Photo)</string>
+    <string name="attach">Attach</string>
+    <string name="id_number">ID Number</string>
+    <string name="xxx_xx_xxxxxx_xx">XXX-XX-XXXXXX-XX</string>
+    <string name="name_on_id">Name on ID</string>
+    <string name="full_address">Full Address</string>
+    <string name="same_as_id">Same as ID</string>
+    <string name="submit">SUBMIT</string>
+    <string name="request_verification">Request Verification</string>
+    <string name="your_photo_holding_your_id_card">Your photo (Holding your ID card)</string>
+    <string name="image">image</string>
+    <string name="type_your_comment_here">Type your comment here..</string>
+    <string name="_15s">15s</string>
+    <string name="_30s">30s</string>
+    <string name="likes">Likes</string>
+    <string name="followers">Followers</string>
+    <string name="ad">Ad</string>
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="fb_native_ad_id">---175164563829582_175164610496244</string>
+    <string name="admobe_native_ad_id">---ca-app-pub-6186490505397342/8250046689</string>
+</resources>

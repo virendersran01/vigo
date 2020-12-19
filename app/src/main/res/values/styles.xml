@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorTheme</item>
+        <item name="android:fontFamily">@font/popins_reguler</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="textAppearanceSmallPopupMenu">@style/myPopupMenuTextAppearance</item>
+        <item name="popupMenuStyle">@style/MainActionBar.Popup</item>
+
+    </style>
+
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+
+    </style>
+
+    <style name="Widget.SocialView" parent="android:Widget.TextView">
+        <item name="hashtagColor">?colorAccent</item>
+        <item name="mentionColor">?colorAccent</item>
+        <item name="hyperlinkColor">?colorAccent</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+
+    </style>
+
+    <style name="AppTheme.PopUp" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorTheme</item>
+    </style>
+
+    <style name="MainActionBar.Popup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:popupBackground">@color/colorPrimary</item>
+        <item name="android:textColor">@color/light_white</item>
+        <item name="itemTextAppearance">@style/myPopupMenuTextAppearance</item>
+    </style>
+
+    <style name="myPopupMenuTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/light_white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/popins_light</item>
+    </style>
+
+
+</resources>

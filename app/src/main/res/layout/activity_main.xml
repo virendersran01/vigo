@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.retrytech.vilo.viewmodel.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.retrytech.vilo.customview.CustomViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/tabLout" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_above="@id/tabLout"
+                android:visibility="@{viewModel.loadingVisibility}">
+
+                <com.agrawalsuneet.loaderspack.loaders.MultipleRippleLoader
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:multipleripple_animDuration="1500"
+                    app:multipleripple_circleColor="@color/white"
+                    app:multipleripple_circleInitialRadius="110dp"
+                    app:multipleripple_fromAlpha="0.8"
+                    app:multipleripple_interpolator="@android:anim/decelerate_interpolator"
+                    app:multipleripple_noOfRipples="2"
+                    app:multipleripple_toAplha="0.1" />
+            </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black"
+                app:tabIconTint="@color/white"
+                app:tabIndicatorColor="@color/colorTheme"
+                app:tabIndicatorFullWidth="false" />
+
+            <include
+                layout="@layout/layout_progress"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <include layout="@layout/layout_no_internet" />
+
+    </LinearLayout>
+</layout>

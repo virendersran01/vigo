@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="fragment"
+            type="com.retrytech.vilo.view.search.SearchItemFragment" />
+
+        <variable
+            name="viewmodel"
+            type="com.retrytech.vilo.viewmodel.SearchActivityViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.search.SearchItemFragment">
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshlout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{fragment.searchType == 1 ? (viewmodel.noUserData ? View.GONE : View.VISIBLE) : (viewmodel.noVideoData ? View.GONE : View.VISIBLE)}"
+            tools:visibility="gone">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:visibility="visible"
+                app:adapter="@{fragment.searchType == 1 ? viewmodel.searchUseradapter : viewmodel.videoListAdapter}"
+                app:spanCount="2"
+                tools:listitem="@layout/item_search_user"
+
+                />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/lout_nothing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{fragment.searchType == 1 ? (viewmodel.noUserData ? View.VISIBLE : View.GONE) : (viewmodel.noVideoData ? View.VISIBLE : View.GONE)}">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bubble_single" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/popins_medium"
+                android:text="Oops !"
+                android:textColor="@color/light_white"
+                android:textSize="25dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/popins_medium"
+                android:text="Nothing to show..."
+                android:textColor="@color/color_text_light"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

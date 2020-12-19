@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.retrytech.vilo.viewmodel.ShareSheetViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_bottom_sheet"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".view.share.ShareSheetFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/popins_medium"
+            android:gravity="center"
+            android:text="Share This Video"
+            android:textColor="@color/light_white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/btn_download"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_download" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:onClick="@{()->viewModel.setOnItemClick(1)}"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_instagram" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:onClick="@{()->viewModel.setOnItemClick(2)}"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_facebook" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:onClick="@{()->viewModel.setOnItemClick(3)}"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_whatsapp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/btn_copy"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_copy" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_white_round"
+                            android:backgroundTint="@color/colorTheme"
+                            android:onClick="@{()->viewModel.setOnItemClick(4)}"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_menu" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btn_report"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/popins_light"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:text="Report Post"
+                android:textAllCaps="false"
+                android:textColor="@color/color_text_light"
+                android:textSize="10sp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/popins_light"
+                android:gravity="center"
+                android:text="By clicking this report button, you agree that\nyou are taking all the responsibilities of all the\nprocess that may be done by us or the content uploader."
+                android:textColor="@color/color_text_light"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

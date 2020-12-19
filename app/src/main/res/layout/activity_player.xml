@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.video.PlayerActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.retrytech.vilo.viewmodel.VideoPlayerViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshlout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_videos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:adapter="@{viewModel.adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_video_list" />
+
+                <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                    android:layout_width="match_parent"
+                    android:layout_height="0.01dp" />
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="15dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/light_white" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/tabLout"
+            android:visibility="@{viewModel.loadingVisibility}">
+
+            <com.agrawalsuneet.loaderspack.loaders.MultipleRippleLoader
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:multipleripple_animDuration="1500"
+                app:multipleripple_circleColor="@color/white"
+                app:multipleripple_circleInitialRadius="110dp"
+                app:multipleripple_fromAlpha="0.8"
+                app:multipleripple_interpolator="@android:anim/decelerate_interpolator"
+                app:multipleripple_noOfRipples="2"
+                app:multipleripple_toAplha="0.1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lout_addComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="8dp"
+                android:afterTextChanged="@{(editable)->viewModel.afterUserNameTextChanged(editable)}"
+                android:background="@null"
+                android:backgroundTint="@color/colorPrimary"
+                android:hint="@string/type_your_comment_here"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:paddingVertical="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="60dp"
+                android:textColor="@color/color_text_light"
+                android:textColorHint="@color/color_text_light"
+                android:textCursorDrawable="@xml/cursor"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/img_send"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_gradient_round"
+                android:contentDescription="@string/image"
+                android:onClick="@{()->viewModel.addComment()}"
+                android:padding="11dp"
+                android:src="@drawable/ic_send"
+                android:tint="@color/white" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

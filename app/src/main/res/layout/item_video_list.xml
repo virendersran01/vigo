@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <import type="com.retrytech.vilo.utils.Global" />
+
+        <variable
+            name="model"
+            type="com.retrytech.vilo.model.videos.Video.Data" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:blur_image="@{model.postImage}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_black_60" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent"
+            app:controller_layout_id="@layout/item_player_controler"
+            app:played_color="@color/transparent"
+            app:scrubber_color="@color/transparent"
+            app:show_timeout="1000"
+            app:shutter_background_color="@color/transparent"
+            app:surface_type="texture_view"
+            app:unplayed_color="@color/transparent" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/lout_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/dp_bg_post"
+                        android:padding="2dp"
+                        app:profile_url="@{model.userProfile}"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/popins_medium"
+                        android:maxLines="1"
+                        android:shadowColor="#000000"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="0.5"
+                        android:text='@{"@"+model.userName}'
+                        android:textColor="@color/light_white"
+                        android:textSize="15dp"
+                        tools:text="\@your_samantha" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="5dp"
+                        android:src="@drawable/ic_user_verified"
+                        android:visibility="@{model.isVerified ? View.VISIBLE : View.GONE}"
+
+                        />
+
+
+                </LinearLayout>
+
+
+                <com.retrytech.vilo.customview.socialview.SocialTextView
+                    android:id="@+id/tv_descreption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/popins_light"
+                    android:maxWidth="250dp"
+                    android:maxLength="180"
+                    android:text="@{model.postDescription}"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    app:animation_duration="500"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="3dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/tv_sound_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:fontFamily="@font/popins_reguler"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@{model.soundTitle}"
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/img_sendBubble"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_gradient_round"
+                    android:padding="8dp"
+                    android:src="@drawable/gift_box" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp">
+
+                    <com.like.LikeButton
+                        android:id="@+id/likebtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        app:anim_scale_factor="2"
+                        app:circle_end_color="@color/colorTheme"
+                        app:circle_start_color="@color/colorPrimary"
+                        app:dots_primary_color="@color/white"
+                        app:dots_secondary_color="@color/Sanddtorm"
+                        app:icon_size="35dp"
+                        app:icon_type="heart"
+                        app:like_drawable="@drawable/ic_heart_gradient"
+                        app:liked="@{model.getVideoIsLiked}"
+                        app:unlike_drawable="@drawable/ic_unliked" />
+
+                    <TextView
+                        android:id="@+id/tv_likeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:textColor="@color/light_white"
+                        android:textSize="12dp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/img_comment"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_comment"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_comment_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:text="@{Global.prettyCount(model.postCommentsCount)}"
+                    android:textColor="@color/light_white"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/img_share"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="20dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_share_fill"
+                    android:tint="@color/white" />
+
+                <RelativeLayout
+                    android:id="@+id/img_sound"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/ic_black_disk"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:src="@drawable/dummy_user">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_gradient_round"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_music_videolist"
+                        android:tint="@color/white"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="1dp"
+                        app:profile_url="@{model.soundImage}" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

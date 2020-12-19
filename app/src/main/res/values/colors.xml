@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1e1f24</color>
+    <color name="colorPrimaryDark">#15161a</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorTheme">#ffb07f</color>
+    <color name="colorTheme1">#BFFFB07F</color>
+    <color name="colorTheme2">#9AFFB07F</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#3D5AFE</color>
+    <color name="pink">#ff5ef6</color>
+    <color name="grey">#DADADA</color>
+    <color name="color_text_light">#666D7E</color>
+    <color name="light_white">#f1f1f3</color>
+    <color name="square_green">#1e1f24</color>
+    <color name="color_true">#059500</color>
+    <color name="color_false">#CF1100</color>
+    <color name="transparent_white_60">#99FFFFFF</color>
+
+    <!--black transperent-->
+
+    <color name="napier_green">#FFC36A</color>
+    <color name="india_red">#FFBBC3</color>
+    <color name="kellygreen">#D1FFA8</color>
+    <color name="tufs_blue">#ADD4FF</color>
+    <color name="tiffanyblue">#AAFFFB</color>
+    <color name="Sanddtorm">#FFE595</color>
+    <color name="salmonpink_1">#FFB8C1</color>
+    <color name="transparent_black_90">#E6000000</color>
+    <color name="transparent_black_80">#CC000000</color>
+    <color name="transparent_black_70">#B3000000</color>
+    <color name="transparent_black_60">#99000000</color>
+    <color name="transparent_black_50">#80000000</color>
+    <color name="transparent_black_40">#66000000</color>
+    <color name="transparent_black_30">#4D000000</color>
+    <color name="transparent_black_20">#33000000</color>
+    <color name="transparent_black_10">#1A000000</color>
+    <color name="transparent_black_05">#0D000000</color>
+    <color name="transparent_black_00">#00000000</color>
+    <color name="black">#000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_55">#8DFFFFFF</color>
+    <color name="black_55">#8B000000</color>
+
+</resources>

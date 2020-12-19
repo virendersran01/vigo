@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.retrytech.vilo.viewmodel.PreviewViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_bottom_sheet">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/lout_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_comment_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:text="Upload video"
+                    android:textColor="@color/light_white" />
+
+                <ImageView
+                    android:id="@+id/img_close"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_close"
+                    android:tint="@color/light_white" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/lout_head"
+                android:background="@color/colorPrimary"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="5dp"
+                        app:cardUseCompatPadding="true">
+
+                        <ImageView
+                            android:id="@+id/iv_thumb"
+                            android:layout_width="105dp"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/dummy_thumb" />
+                        <!--                            app:is_round="@{false}"-->
+                        <!--                            app:media_image="@{viewModel.videoThumbnail}" />-->
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/popins_reguler"
+                            android:text="Describe"
+                            android:textColor="@color/light_white"
+
+                            />
+
+                        <com.retrytech.vilo.customview.socialview.SocialEditText
+                            android:id="@+id/edt_des"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:afterTextChanged="@{(editable)->viewModel.onDescriptionTextChanged(editable)}"
+                            android:background="@drawable/bg_white_corner_15"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:elevation="5dp"
+                            android:fontFamily="@font/popins_reguler"
+                            android:gravity="top"
+                            android:hint="Awesome caption.."
+                            android:maxLength="175"
+                            android:padding="10dp"
+                            android:textColor="@color/light_white"
+                            android:textColorHint="@color/color_text_light"
+                            android:textCursorDrawable="@xml/cursor"
+                            android:textSize="12dp"
+                            app:socialFlags="hashtag" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="end"
+                    android:text='@{viewModel.position+"/175"}'
+                    android:textColor="@color/color_text_light" />
+
+                <Button
+                    android:id="@+id/btn_publish"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/bg_gradient"
+                    android:fontFamily="@font/popins_medium"
+                    android:letterSpacing="0.1"
+                    android:onClick="@{()->viewModel.uploadPost()}"
+                    android:text="publish"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/popins_reguler"
+                    android:gravity="center"
+                    android:text="By continuing, you agree to BubbleTok’s terms of use\nand confirm that you have read our privacy policy."
+                    android:textColor="@color/color_text_light"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/popins_reguler"
+                    android:gravity="center"
+                    android:text="policy center"
+                    android:textColor="@color/colorTheme"
+                    android:textSize="12dp" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- code created by RetryTech / Skype : RetryTech / Mail = retrytech@gmail.com -->
+    <data
+        android:layout_width="9dp"
+        android:layout_height="7dp">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.retrytech.vilo.viewmodel.ForUViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.home.ForUFragment">
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshlout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewmodel.isEmpty ? View.GONE : View.VISIBLE}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{viewmodel.adapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_video_list" />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+
+                />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/lout_popular"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="@{viewmodel.isEmpty ? View.VISIBLE : View.GONE}">
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/bubbles" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/popins_medium"
+                android:text="Famous creators"
+                android:textColor="@color/light_white"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/tv_follow_some"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lout_username"
+                android:layout_marginHorizontal="60dp"
+                android:fontFamily="@font/popins_reguler"
+                android:gravity="center"
+                android:text="Follow some creators to\nwatch their videos"
+                android:textColor="@color/color_text_light"
+                android:textSize="14dp"
+
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popular_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:adapter="@{viewmodel.famousAdapter}"
+                android:orientation="horizontal"
+                app:cardSlider_otherPagesWidth="40dp"
+                app:cardSlider_smallScaleFactor="0.6"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_famous_creator"
+                tools:visibility="gone" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>
